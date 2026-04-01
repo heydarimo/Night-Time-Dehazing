@@ -102,7 +102,7 @@ The dehazed results will be saved to:
 
 ## Reproducibility of Paper Results
 
-To reproduce the paper results, including generation of dehazed images and the reported evaluation metrics, download the **`artifacts`** folder from the Google Drive link below and place the `dataset` and `checkpoints` folders in a local directory with the following structure.
+To reproduce the paper results, including the generation of dehazed images on the test data and the quantitative metrics reported in the paper, download the **`artifacts`** folder from the Google Drive link below and place the `dataset` and `checkpoints` folders in a local directory with the following structure.
 
 Google Drive (artifacts):
 https://drive.google.com/drive/folders/14UvIxnu40E0EYuOfGfAjX_IbFzWZwBCm?usp=sharing
@@ -184,7 +184,13 @@ The generated dehazed images will be saved in the corresponding output directori
 - `results_NH_Haze2/`
 - `results_DenseHaze/`
 
-These commands are intended to reproduce the dehazed outputs and evaluation setting used for the paper results.
+These commands are intended to reproduce the generation of dehazed images on the test sets and the quantitative results reported in the paper.
+
+## Contact
+
+For future contact, please email:
+
+**mohammadheydari.eduu@gmail.com**
 
 
 ## Notes
