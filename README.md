@@ -191,7 +191,7 @@ These commands are intended to reproduce the generation of dehazed images on the
 The following commands correspond to training on the different datasets before applying frequency-adaptive refinement fine-tuning.
 
 ### Training on NH-Haze
-
+```bash
 python train.py \
   --dataset_root ./artifacts/dataset/NH-Haze \
   --crop_size 384 \
@@ -203,7 +203,7 @@ python train.py \
   --excel_txt test_metrics_NH_Haze.xlsx
 
 ### Training on NH-Haze2
-
+```bash
 python train.py \
   --dataset_root ./artifacts/dataset/NH-Haze2 \
   --crop_size 384 \
@@ -215,7 +215,7 @@ python train.py \
   --excel_txt test_metrics_NH_Haze2.xlsx
 
 ### Training on Dense-Haze
-
+```bash
 python train.py \
   --dataset_root ./artifacts/dataset/Dense-Haze \
   --crop_size 384 \
