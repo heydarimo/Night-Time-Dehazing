@@ -186,6 +186,46 @@ The generated dehazed images will be saved in the corresponding output directori
 
 These commands are intended to reproduce the generation of dehazed images on the test sets and the quantitative results reported in the paper.
 
+## Training Commands Before Frequency-Adaptive Refinement Fine-Tuning
+
+The following commands correspond to training on the different datasets before applying frequency-adaptive refinement fine-tuning.
+
+### Training on NH-Haze
+
+python train.py \
+  --dataset_root ./artifacts/dataset/NH-Haze \
+  --crop_size 384 \
+  -train_batch_size 2 \
+  -train_epoch 5000 \
+  --model_save_dir ./artifacts/checkpoints/HistoFusionNet/Checkpoints_NH_Haze \
+  --denet_save_dir ./artifacts/checkpoints/HistoFusionNet/Checkpoints_NH_Haze \
+  --log_txt train_loss_NH_Haze.txt \
+  --excel_txt test_metrics_NH_Haze.xlsx
+
+### Training on NH-Haze2
+
+python train.py \
+  --dataset_root ./artifacts/dataset/NH-Haze2 \
+  --crop_size 384 \
+  -train_batch_size 2 \
+  -train_epoch 5000 \
+  --model_save_dir ./artifacts/checkpoints/HistoFusionNet/Checkpoints_NH_Haze2 \
+  --denet_save_dir ./artifacts/checkpoints/HistoFusionNet/Checkpoints_NH_Haze2 \
+  --log_txt train_loss_NH_Haze2.txt \
+  --excel_txt test_metrics_NH_Haze2.xlsx
+
+### Training on Dense-Haze
+
+python train.py \
+  --dataset_root ./artifacts/dataset/Dense-Haze \
+  --crop_size 384 \
+  -train_batch_size 2 \
+  -train_epoch 5000 \
+  --model_save_dir ./artifacts/checkpoints/HistoFusionNet/Checkpoints_DenseHaze \
+  --denet_save_dir ./artifacts/checkpoints/HistoFusionNet/Checkpoints_DenseHaze \
+  --log_txt train_loss_dense_haze.txt \
+  --excel_txt test_metrics_dense_haze.xlsx
+
 ## Contact
 
 For future contact, please email:
