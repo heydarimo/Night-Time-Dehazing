@@ -194,6 +194,7 @@ The following commands correspond to training on the different datasets before a
 
 Run:
 
+```bash
 python train.py \
   --dataset_root ./artifacts/dataset/NH-Haze \
   --crop_size 384 \
@@ -203,11 +204,13 @@ python train.py \
   --denet_save_dir ./artifacts/checkpoints/HistoFusionNet/Checkpoints_NH_Haze \
   --log_txt train_loss_NH_Haze.txt \
   --excel_txt test_metrics_NH_Haze.xlsx
+```
 
 ### Training on NH-Haze2
 
 Run:
 
+```bash
 python train.py \
   --dataset_root ./artifacts/dataset/NH-Haze2 \
   --crop_size 384 \
@@ -217,11 +220,13 @@ python train.py \
   --denet_save_dir ./artifacts/checkpoints/HistoFusionNet/Checkpoints_NH_Haze2 \
   --log_txt train_loss_NH_Haze2.txt \
   --excel_txt test_metrics_NH_Haze2.xlsx
+```
 
 ### Training on Dense-Haze
 
 Run:
 
+```bash
 python train.py \
   --dataset_root ./artifacts/dataset/Dense-Haze \
   --crop_size 384 \
@@ -231,6 +236,7 @@ python train.py \
   --denet_save_dir ./artifacts/checkpoints/HistoFusionNet/Checkpoints_DenseHaze \
   --log_txt train_loss_dense_haze.txt \
   --excel_txt test_metrics_dense_haze.xlsx
+```
 
 ## Contact
 
