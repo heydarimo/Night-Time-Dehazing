@@ -100,8 +100,98 @@ The dehazed results will be saved to:
 ./out/
 ```
 
+## Reproducibility of Paper Results
+
+To reproduce the paper results, including generation of dehazed images and the reported evaluation metrics, download the **`artifacts`** folder from the Google Drive link below and place the `dataset` and `checkpoints` folders in a local directory with the following structure.
+
+Google Drive (artifacts):
+https://drive.google.com/drive/folders/14UvIxnu40E0EYuOfGfAjX_IbFzWZwBCm?usp=sharing
+
+Expected directory structure:
+
+    artifacts/
+    ├── dataset/
+    │   ├── Dense-Haze/
+    │   │   ├── train/
+    │   │   └── test/
+    │   ├── NH-Haze/
+    │   │   ├── train/
+    │   │   └── test/
+    │   └── NH-Haze2/
+    │       ├── train/
+    │       └── test/
+    └── checkpoints/
+        └── HistoFusionNet/
+            ├── Checkpoints_DenseHaze/
+            │   └── best_psnr.pkl
+            ├── Checkpoints_NH_Haze/
+            │   └── best_psnr.pkl
+            └── Checkpoints_NH_Haze2/
+                └── best_psnr.pkl
+
+> **Note:** The `train/` and `test/` subdirectory structure is the same for all three datasets.
+
+### Evaluation on NH-Haze
+
+Run:
+
+    python predict.py \
+      --data_root ./artifacts/dataset/NH-Haze/test/ \
+      --ckpt ./artifacts/checkpoints/HistoFusionNet/Checkpoints_NH_Haze/best_psnr.pkl \
+      --out_dir results_NH_Haze \
+      --device cuda:0 \
+      --mode fullpad \
+      --mod 32 \
+      --pad_mode reflect \
+      --num_workers 0 \
+      --sanity
+
+### Evaluation on NH-Haze2
+
+Run:
+
+    python predict.py \
+      --data_root ./artifacts/dataset/NH-Haze2/test/ \
+      --ckpt ./artifacts/checkpoints/HistoFusionNet/Checkpoints_NH_Haze2/best_psnr.pkl \
+      --out_dir results_NH_Haze2 \
+      --device cuda:0 \
+      --mode fullpad \
+      --mod 32 \
+      --pad_mode reflect \
+      --num_workers 0 \
+      --sanity
+
+### Evaluation on Dense-Haze
+
+Run:
+
+    python predict_dense.py \
+      --data_root ./artifacts/dataset/Dense-Haze/test/ \
+      --ckpt ./artifacts/checkpoints/HistoFusionNet/Checkpoints_DenseHaze/best_psnr.pkl \
+      --out_dir results_DenseHaze \
+      --device cuda:0 \
+      --mode fullpad \
+      --mod 32 \
+      --pad_mode reflect \
+      --num_workers 0 \
+      --sanity
+
+### Output
+
+The generated dehazed images will be saved in the corresponding output directories:
+
+- `results_NH_Haze/`
+- `results_NH_Haze2/`
+- `results_DenseHaze/`
+
+These commands are intended to reproduce the dehazed outputs and evaluation setting used for the paper results.
+
+
 ## Notes
 
 - This README is intended for inference-time reproduction of the released challenge results.
 - Please use the provided environment files, released checkpoints, and the same inference settings.
 - Minor numerical differences can occur across different hardware or software environments, but the reproduced results should remain at the same performance level.
+
+
+
