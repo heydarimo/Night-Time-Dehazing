@@ -186,7 +186,7 @@ The generated dehazed images will be saved in the corresponding output directori
 
 These commands are intended to reproduce the generation of dehazed images on the test sets and the quantitative results reported in the paper.
 
-## Training Commands Before Frequency-Adaptive Refinement Fine-Tuning
+## Training Commands
 
 The following commands correspond to training on the different datasets before applying frequency-adaptive refinement fine-tuning.
 
