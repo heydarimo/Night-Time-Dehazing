@@ -7,7 +7,7 @@
 ### 11th New Trends in Image Restoration and Enhancement Workshop
 
 Mohammad Heydari*, Wei Dong*, Shahram Shirani, Jun Chen, Han Zhou
-* Equal contribution
+\* Equal contribution
 
 [![arXiv](https://img.shields.io/badge/arXiv-Paper-b31b1b.svg)](https://arxiv.org/abs/2604.03800)
 [![Project Page](https://img.shields.io/badge/Project-Page-blue)](#)
