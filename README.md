@@ -6,8 +6,6 @@
 
 ### 11th New Trends in Image Restoration and Enhancement Workshop
 
-### NTIRE 2026 Night-Time Dehazing Challenge
-
 Mohammad Heydari*, Wei Dong*, Shahram Shirani, Jun Chen, Han Zhou
 * Equal contribution
 
@@ -29,7 +27,7 @@ Nighttime image dehazing is a challenging image restoration problem because real
 
 In our CVPR 2026 paper, we present **HistoFusionNet**, a histogram-guided fusion and frequency-adaptive refinement framework for nighttime image dehazing. The proposed network is designed to combine global distribution-aware representation learning with local detail restoration. Specifically, HistoFusionNet uses histogram-guided modeling to capture illumination and intensity-distribution priors that are important for nighttime scenes with severe brightness imbalance and haze-density variation. This helps the network better understand global degradation patterns and restore visually consistent results.
 
-To further improve restoration quality, HistoFusionNet incorporates a frequency-adaptive refinement strategy. This component enhances structural details, suppresses artifacts, and improves texture recovery by refining the restored image in a frequency-aware manner. By combining histogram-guided fusion with frequency-domain refinement, HistoFusionNet effectively reduces haze, glow, color shifts, and contrast degradation while preserving image details. The framework achieves strong performance on nighttime and dense haze benchmarks and was developed for the **NTIRE 2026 Night-Time Dehazing Challenge** at the **11th New Trends in Image Restoration and Enhancement Workshop, CVPR 2026**.
+To further improve restoration quality, HistoFusionNet incorporates a frequency-adaptive refinement strategy. This component enhances structural details, suppresses artifacts, and improves texture recovery by refining the restored image in a frequency-aware manner. By combining histogram-guided fusion with frequency-domain refinement, HistoFusionNet effectively reduces haze, glow, color shifts, and contrast degradation while preserving image details. The framework achieves strong performance on nighttime and dense haze benchmarks and is presented at **CVPR 2026** in the **11th New Trends in Image Restoration and Enhancement Workshop**.
 
 ---
 
@@ -39,14 +37,14 @@ This repository provides the code and full implementation of **HistoFusionNet**,
 
 > **HistoFusionNet: Histogram-Guided Fusion and Frequency-Adaptive Refinement for Nighttime Image Dehazing**
 
-The work is associated with the **11th New Trends in Image Restoration and Enhancement Workshop** and the **NTIRE 2026 Night-Time Dehazing Challenge**.
+The paper is presented at **CVPR 2026** in the **11th New Trends in Image Restoration and Enhancement Workshop**.
 
-The README is organized to help users follow the repository in a clear order. The first part focuses on **challenge inference**, which allows users to run the released model on the NTIRE challenge test images using the provided checkpoint. The next part provides instructions for **reproducing the paper results**, including the released artifacts, datasets, checkpoints, and commands needed to generate the dehazed outputs and quantitative results reported in the paper. Finally, the README provides the **training commands** used for the supported datasets before applying frequency-adaptive refinement fine-tuning.
+This README is organized to guide users through the repository in a practical order. The first part provides instructions for running **challenge inference** using the released model checkpoint. The second part explains how to reproduce the results reported in the paper, including the required artifacts, datasets, checkpoints, and evaluation commands. The final part provides the training commands used for the supported datasets before applying frequency-adaptive refinement fine-tuning.
 
 The repository includes:
 
 * Full implementation of HistoFusionNet.
-* Inference code for reproducing the NTIRE challenge submission results.
+* Inference code for reproducing the released challenge submission results.
 * Environment files for reproducibility.
 * Released checkpoints and pretrained backbone loading instructions.
 * Evaluation commands for NH-Haze, NH-Haze2, and Dense-Haze.
