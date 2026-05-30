@@ -2,7 +2,11 @@
 
 # HistoFusionNet: Histogram-Guided Fusion and Frequency-Adaptive Refinement for Nighttime Image Dehazing
 
-### CVPR 2026 / NTIRE 2026 Nighttime Image Dehazing Challenge
+### CVPR 2026
+
+### 11th New Trends in Image Restoration and Enhancement Workshop
+
+### NTIRE 2026 Night-Time Dehazing Challenge
 
 Mohammad Heydari*, Wei Dong*, Shahram Shirani, Jun Chen, Han Zhou
 * Equal contribution
@@ -21,25 +25,35 @@ Mohammad Heydari*, Wei Dong*, Shahram Shirani, Jun Chen, Han Zhou
   <img src="assets/method_overview.png" width="95%">
 </p>
 
-Nighttime image dehazing is highly challenging because real nighttime scenes often contain non-uniform illumination, glow, color distortion, sensor noise, and spatially varying haze. Existing daytime dehazing methods usually struggle under these conditions because the degradation is not only caused by haze scattering, but also by complex interactions between artificial light sources, low-light imaging, and local contrast degradation.
+Nighttime image dehazing is a challenging image restoration problem because real nighttime scenes often contain spatially varying haze, non-uniform illumination, glow from artificial light sources, color distortion, low contrast, and sensor noise. These degradations are more complex than those in standard daytime dehazing, where the main degradation is usually modeled as atmospheric scattering. As a result, many existing dehazing approaches struggle to recover clear structure, faithful color, and fine details in nighttime environments.
 
-To address these challenges, we propose **HistoFusionNet**, a histogram-guided fusion and frequency-adaptive refinement framework for nighttime image dehazing. The network first extracts multi-scale visual features using a transformer-based backbone and enhances the feature representation through histogram-aware modeling. The histogram-guided branch helps the model capture global intensity distributions and illumination-related degradation patterns, which are important for restoring nighttime images with severe brightness imbalance and haze density variation.
+In our CVPR 2026 paper, we present **HistoFusionNet**, a histogram-guided fusion and frequency-adaptive refinement framework for nighttime image dehazing. The proposed network is designed to combine global distribution-aware representation learning with local detail restoration. Specifically, HistoFusionNet uses histogram-guided modeling to capture illumination and intensity-distribution priors that are important for nighttime scenes with severe brightness imbalance and haze-density variation. This helps the network better understand global degradation patterns and restore visually consistent results.
 
-In addition, HistoFusionNet introduces a frequency-aware refinement strategy to recover fine details and suppress artifacts. By combining spatial-domain representation learning with frequency-domain refinement, the model can better preserve edges, textures, and structural information while reducing haze, glow, and color shifts. The overall framework is designed to produce visually clear and quantitatively strong dehazed results across nighttime and dense haze benchmarks.
+To further improve restoration quality, HistoFusionNet incorporates a frequency-adaptive refinement strategy. This component enhances structural details, suppresses artifacts, and improves texture recovery by refining the restored image in a frequency-aware manner. By combining histogram-guided fusion with frequency-domain refinement, HistoFusionNet effectively reduces haze, glow, color shifts, and contrast degradation while preserving image details. The framework achieves strong performance on nighttime and dense haze benchmarks and was developed for the **NTIRE 2026 Night-Time Dehazing Challenge** at the **11th New Trends in Image Restoration and Enhancement Workshop, CVPR 2026**.
 
 ---
 
 ## Overview
 
-This repository provides the official inference, evaluation, and training code for **HistoFusionNet**, developed for the **NTIRE 2026 Night-Time Dehazing Challenge**.
+This repository provides the code and full implementation of **HistoFusionNet**, the method presented in our **CVPR 2026 paper**:
+
+> **HistoFusionNet: Histogram-Guided Fusion and Frequency-Adaptive Refinement for Nighttime Image Dehazing**
+
+The work is associated with the **11th New Trends in Image Restoration and Enhancement Workshop** and the **NTIRE 2026 Night-Time Dehazing Challenge**.
+
+The README is organized to help users follow the repository in a clear order. The first part focuses on **challenge inference**, which allows users to run the released model on the NTIRE challenge test images using the provided checkpoint. The next part provides instructions for **reproducing the paper results**, including the released artifacts, datasets, checkpoints, and commands needed to generate the dehazed outputs and quantitative results reported in the paper. Finally, the README provides the **training commands** used for the supported datasets before applying frequency-adaptive refinement fine-tuning.
 
 The repository includes:
 
-* Challenge inference code for reproducing the submitted results.
+* Full implementation of HistoFusionNet.
+* Inference code for reproducing the NTIRE challenge submission results.
 * Environment files for reproducibility.
-* Checkpoint loading and inference scripts.
+* Released checkpoints and pretrained backbone loading instructions.
 * Evaluation commands for NH-Haze, NH-Haze2, and Dense-Haze.
 * Training commands for the released experimental setup.
+* Instructions for reproducing the results reported in the paper.
+
+For paper-level reproduction, please refer to the [Reproducibility of Paper Results](#reproducibility-of-paper-results) section.
 
 ---
 
@@ -153,7 +167,7 @@ The dehazed results will be saved to:
 
 ---
 
-# Reproducibility of Paper Results
+## Reproducibility of Paper Results
 
 To reproduce the paper results, including the generation of dehazed images on the test data and the quantitative metrics reported in the paper, download the **`artifacts`** folder from the Google Drive link below.
 
@@ -300,7 +314,7 @@ python train.py \
 
 ## Notes
 
-* This README is intended for inference-time reproduction of the released challenge results.
+* This README is intended for inference-time reproduction of the released challenge results and paper results.
 * Please use the provided environment files, released checkpoints, and the same inference settings.
 * Minor numerical differences may occur across different hardware or software environments, but the reproduced results should remain at the same performance level.
 
