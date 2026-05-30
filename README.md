@@ -4,8 +4,8 @@
 
 ### CVPR 2026 / NTIRE 2026 Nighttime Image Dehazing Challenge
 
-Mohammad Heydari*, Wei Dong*, Shahram Shirani, Jun Chen, Han Zhou  
-\* Equal contribution
+Mohammad Heydari*, Wei Dong*, Shahram Shirani, Jun Chen, Han Zhou
+* Equal contribution
 
 [![arXiv](https://img.shields.io/badge/arXiv-Paper-b31b1b.svg)](https://arxiv.org/abs/2604.03800)
 [![Project Page](https://img.shields.io/badge/Project-Page-blue)](#)
@@ -21,25 +21,40 @@ Mohammad Heydari*, Wei Dong*, Shahram Shirani, Jun Chen, Han Zhou
   <img src="assets/method_overview.png" width="95%">
 </p>
 
-HistoFusionNet is a transformer-enhanced architecture for nighttime image dehazing. It combines histogram-guided representation learning with frequency-adaptive refinement to handle haze, glow, non-uniform illumination, color distortion, and sensor noise in nighttime scenes.
+Nighttime image dehazing is highly challenging because real nighttime scenes often contain non-uniform illumination, glow, color distortion, sensor noise, and spatially varying haze. Existing daytime dehazing methods usually struggle under these conditions because the degradation is not only caused by haze scattering, but also by complex interactions between artificial light sources, low-light imaging, and local contrast degradation.
+
+To address these challenges, we propose **HistoFusionNet**, a histogram-guided fusion and frequency-adaptive refinement framework for nighttime image dehazing. The network first extracts multi-scale visual features using a transformer-based backbone and enhances the feature representation through histogram-aware modeling. The histogram-guided branch helps the model capture global intensity distributions and illumination-related degradation patterns, which are important for restoring nighttime images with severe brightness imbalance and haze density variation.
+
+In addition, HistoFusionNet introduces a frequency-aware refinement strategy to recover fine details and suppress artifacts. By combining spatial-domain representation learning with frequency-domain refinement, the model can better preserve edges, textures, and structural information while reducing haze, glow, and color shifts. The overall framework is designed to produce visually clear and quantitatively strong dehazed results across nighttime and dense haze benchmarks.
 
 ---
 
+## Overview
 
+This repository provides the official inference, evaluation, and training code for **HistoFusionNet**, developed for the **NTIRE 2026 Night-Time Dehazing Challenge**.
 
+The repository includes:
 
-# NTIRE 2026 Night-Time Dehazing Challenge Inference
+* Challenge inference code for reproducing the submitted results.
+* Environment files for reproducibility.
+* Checkpoint loading and inference scripts.
+* Evaluation commands for NH-Haze, NH-Haze2, and Dense-Haze.
+* Training commands for the released experimental setup.
 
-This repository provides the inference code and environment files used to reproduce our challenge submission results.
+---
 
 ## Environment
 
-Python version used: **Python 3.8.20**
+The experiments were conducted using:
 
-We provide two environment files for reproducibility:
+```bash
+Python 3.8.20
+```
 
-- `environment.yml`
-- `requirements.txt`
+Two environment files are provided for reproducibility:
+
+* `environment.yml`
+* `requirements.txt`
 
 ### Option 1: Conda
 
@@ -54,15 +69,17 @@ conda activate dehazedct
 pip install -r requirements.txt
 ```
 
-## Dataset Setup
+---
 
-Place the 5 test images in:
+## Dataset Setup for Challenge Inference
+
+Place the 5 test images in the following directory:
 
 ```bash
 data/challenge_test/hazy/
 ```
 
-Example structure:
+Expected structure:
 
 ```bash
 .
@@ -82,18 +99,22 @@ Example structure:
 └── flash_intern_image_l_22kto1k_384.pth
 ```
 
+---
+
 ## Checkpoints
 
-Download the following files from the Google Drive folder below and place them in the repository root directory:
+Download the following files from the Google Drive folder and place them in the repository root directory:
 
-- `final.pth` — best challenge checkpoint
-- `flash_intern_image_l_22kto1k_384.pth` — pretrained FlashInternImage backbone
+* `final.pth` — best challenge checkpoint
+* `flash_intern_image_l_22kto1k_384.pth` — pretrained FlashInternImage backbone
 
 Google Drive folder:
 
 ```text
 https://drive.google.com/drive/folders/1uP5ZUUcnkXYPO_PgCiayVXFcZ27ftzIi?usp=sharing
 ```
+
+---
 
 ## DCNv4 Setup
 
@@ -105,9 +126,11 @@ bash make.sh
 cd ..
 ```
 
-If needed, this step may require minor adjustment depending on the local CUDA and PyTorch build environment.
+Depending on your local CUDA and PyTorch build environment, this step may require minor adjustment.
 
-## Inference
+---
+
+## Challenge Inference
 
 Run the following command from the repository root:
 
@@ -122,107 +145,116 @@ python predict_stage2_ensemble.py \
     --pad_mode reflect
 ```
 
-## Output
-
 The dehazed results will be saved to:
 
 ```bash
 ./out/
 ```
 
-## Reproducibility of Paper Results
+---
 
-To reproduce the paper results, including the generation of dehazed images on the test data and the quantitative metrics reported in the paper, download the **`artifacts`** folder from the Google Drive link below and place the `dataset` and `checkpoints` folders in a local directory with the following structure.
+# Reproducibility of Paper Results
 
-Google Drive (artifacts):
+To reproduce the paper results, including the generation of dehazed images on the test data and the quantitative metrics reported in the paper, download the **`artifacts`** folder from the Google Drive link below.
+
+Google Drive artifacts folder:
+
+```text
 https://drive.google.com/drive/folders/14UvIxnu40E0EYuOfGfAjX_IbFzWZwBCm?usp=sharing
+```
 
-Expected directory structure:
+After downloading, place the `dataset` and `checkpoints` folders in a local directory using the following structure:
 
-    artifacts/
-    ├── dataset/
-    │   ├── Dense-Haze/
-    │   │   ├── train/
-    │   │   └── test/
-    │   ├── NH-Haze/
-    │   │   ├── train/
-    │   │   └── test/
-    │   └── NH-Haze2/
-    │       ├── train/
-    │       └── test/
-    └── checkpoints/
-        └── HistoFusionNet/
-            ├── Checkpoints_DenseHaze/
-            │   └── best_psnr.pkl
-            ├── Checkpoints_NH_Haze/
-            │   └── best_psnr.pkl
-            └── Checkpoints_NH_Haze2/
-                └── best_psnr.pkl
+```bash
+artifacts/
+├── dataset/
+│   ├── Dense-Haze/
+│   │   ├── train/
+│   │   └── test/
+│   ├── NH-Haze/
+│   │   ├── train/
+│   │   └── test/
+│   └── NH-Haze2/
+│       ├── train/
+│       └── test/
+└── checkpoints/
+    └── HistoFusionNet/
+        ├── Checkpoints_DenseHaze/
+        │   └── best_psnr.pkl
+        ├── Checkpoints_NH_Haze/
+        │   └── best_psnr.pkl
+        └── Checkpoints_NH_Haze2/
+            └── best_psnr.pkl
+```
 
 > **Note:** The `train/` and `test/` subdirectory structure is the same for all three datasets.
 
+---
+
+## Evaluation
+
+The following commands reproduce the generation of dehazed images on the test sets and the quantitative results reported in the paper.
+
 ### Evaluation on NH-Haze
 
-Run:
-
-    python predict.py \
-      --data_root ./artifacts/dataset/NH-Haze/test/ \
-      --ckpt ./artifacts/checkpoints/HistoFusionNet/Checkpoints_NH_Haze/best_psnr.pkl \
-      --out_dir results_NH_Haze \
-      --device cuda:0 \
-      --mode fullpad \
-      --mod 32 \
-      --pad_mode reflect \
-      --num_workers 0 \
-      --sanity
+```bash
+python predict.py \
+  --data_root ./artifacts/dataset/NH-Haze/test/ \
+  --ckpt ./artifacts/checkpoints/HistoFusionNet/Checkpoints_NH_Haze/best_psnr.pkl \
+  --out_dir results_NH_Haze \
+  --device cuda:0 \
+  --mode fullpad \
+  --mod 32 \
+  --pad_mode reflect \
+  --num_workers 0 \
+  --sanity
+```
 
 ### Evaluation on NH-Haze2
 
-Run:
-
-    python predict.py \
-      --data_root ./artifacts/dataset/NH-Haze2/test/ \
-      --ckpt ./artifacts/checkpoints/HistoFusionNet/Checkpoints_NH_Haze2/best_psnr.pkl \
-      --out_dir results_NH_Haze2 \
-      --device cuda:0 \
-      --mode fullpad \
-      --mod 32 \
-      --pad_mode reflect \
-      --num_workers 0 \
-      --sanity
+```bash
+python predict.py \
+  --data_root ./artifacts/dataset/NH-Haze2/test/ \
+  --ckpt ./artifacts/checkpoints/HistoFusionNet/Checkpoints_NH_Haze2/best_psnr.pkl \
+  --out_dir results_NH_Haze2 \
+  --device cuda:0 \
+  --mode fullpad \
+  --mod 32 \
+  --pad_mode reflect \
+  --num_workers 0 \
+  --sanity
+```
 
 ### Evaluation on Dense-Haze
 
-Run:
-
-    python predict_dense.py \
-      --data_root ./artifacts/dataset/Dense-Haze/test/ \
-      --ckpt ./artifacts/checkpoints/HistoFusionNet/Checkpoints_DenseHaze/best_psnr.pkl \
-      --out_dir results_DenseHaze \
-      --device cuda:0 \
-      --mode fullpad \
-      --mod 32 \
-      --pad_mode reflect \
-      --num_workers 0 \
-      --sanity
-
-### Output
+```bash
+python predict_dense.py \
+  --data_root ./artifacts/dataset/Dense-Haze/test/ \
+  --ckpt ./artifacts/checkpoints/HistoFusionNet/Checkpoints_DenseHaze/best_psnr.pkl \
+  --out_dir results_DenseHaze \
+  --device cuda:0 \
+  --mode fullpad \
+  --mod 32 \
+  --pad_mode reflect \
+  --num_workers 0 \
+  --sanity
+```
 
 The generated dehazed images will be saved in the corresponding output directories:
 
-- `results_NH_Haze/`
-- `results_NH_Haze2/`
-- `results_DenseHaze/`
+```bash
+results_NH_Haze/
+results_NH_Haze2/
+results_DenseHaze/
+```
 
-These commands are intended to reproduce the generation of dehazed images on the test sets and the quantitative results reported in the paper.
+---
 
 ## Training Commands
 
 The following commands correspond to training on the different datasets before applying frequency-adaptive refinement fine-tuning.
 
 ### Training on NH-Haze
-
-Run:
 
 ```bash
 python train.py \
@@ -238,8 +270,6 @@ python train.py \
 
 ### Training on NH-Haze2
 
-Run:
-
 ```bash
 python train.py \
   --dataset_root ./artifacts/dataset/NH-Haze2 \
@@ -254,8 +284,6 @@ python train.py \
 
 ### Training on Dense-Haze
 
-Run:
-
 ```bash
 python train.py \
   --dataset_root ./artifacts/dataset/Dense-Haze \
@@ -268,18 +296,35 @@ python train.py \
   --excel_txt test_metrics_dense_haze.xlsx
 ```
 
-## Contact
-
-For future contact, please email:
-
-**mohammadheydari.eduu@gmail.com**
-
+---
 
 ## Notes
 
-- This README is intended for inference-time reproduction of the released challenge results.
-- Please use the provided environment files, released checkpoints, and the same inference settings.
-- Minor numerical differences can occur across different hardware or software environments, but the reproduced results should remain at the same performance level.
+* This README is intended for inference-time reproduction of the released challenge results.
+* Please use the provided environment files, released checkpoints, and the same inference settings.
+* Minor numerical differences may occur across different hardware or software environments, but the reproduced results should remain at the same performance level.
 
+---
 
+## Citation
 
+If you find this repository useful for your research, please consider citing our paper:
+
+```bibtex
+@article{heydari2026histofusionnet,
+  title={HistoFusionNet: Histogram-Guided Fusion and Frequency-Adaptive Refinement for Nighttime Image Dehazing},
+  author={Heydari, Mohammad and Dong, Wei and Shirani, Shahram and Chen, Jun and Zhou, Han},
+  journal={arXiv preprint arXiv:2604.03800},
+  year={2026}
+}
+```
+
+---
+
+## Contact
+
+For questions or future contact, please email:
+
+```text
+mohammadheydari.eduu@gmail.com
+```
