@@ -1,3 +1,33 @@
+<div align="center">
+
+# HistoFusionNet: Histogram-Guided Fusion and Frequency-Adaptive Refinement for Nighttime Image Dehazing
+
+### CVPR 2026 / NTIRE 2026 Nighttime Image Dehazing Challenge
+
+Mohammad Heydari*, Wei Dong*, Shahram Shirani, Jun Chen, Han Zhou  
+\* Equal contribution
+
+[![arXiv](https://img.shields.io/badge/arXiv-Paper-b31b1b.svg)](https://arxiv.org/abs/2604.03800)
+[![Project Page](https://img.shields.io/badge/Project-Page-blue)](#)
+[![Code](https://img.shields.io/badge/Code-GitHub-black)](https://github.com/heydarimo/Night-Time-Dehazing)
+
+</div>
+
+---
+
+## Method Overview
+
+<p align="center">
+  <img src="assets/method_overview.png" width="95%">
+</p>
+
+HistoFusionNet is a transformer-enhanced architecture for nighttime image dehazing. It combines histogram-guided representation learning with frequency-adaptive refinement to handle haze, glow, non-uniform illumination, color distortion, and sensor noise in nighttime scenes.
+
+---
+
+
+
+
 # NTIRE 2026 Night-Time Dehazing Challenge Inference
 
 This repository provides the inference code and environment files used to reproduce our challenge submission results.
