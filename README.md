@@ -320,14 +320,23 @@ python train.py \
 
 ## Citation
 
-If you find this repository useful for your research, please consider citing our paper:
+If you find this repository useful for your research, please use the following entry.
 
 ```bibtex
+@InProceedings{Heydari_2026_CVPR,
+  author    = {Heydari, Mohammad and Dong, Wei and Shirani, Shahram and Chen, Jun and Zhou, Han},
+  title     = {HistoFusionNet: Histogram-Guided Fusion and Frequency-Adaptive Refinement for Nighttime Image Dehazing},
+  booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) Workshops},
+  month     = {June},
+  year      = {2026},
+  pages     = {1914--1924}
+}
+
 @article{heydari2026histofusionnet,
-  title={HistoFusionNet: Histogram-Guided Fusion and Frequency-Adaptive Refinement for Nighttime Image Dehazing},
-  author={Heydari, Mohammad and Dong, Wei and Shirani, Shahram and Chen, Jun and Zhou, Han},
-  journal={arXiv preprint arXiv:2604.03800},
-  year={2026}
+  title   = {HistoFusionNet: Histogram-Guided Fusion and Frequency-Adaptive Refinement for Nighttime Image Dehazing},
+  author  = {Heydari, Mohammad and Dong, Wei and Shirani, Shahram and Chen, Jun and Zhou, Han},
+  journal = {arXiv preprint arXiv:2604.03800},
+  year    = {2026}
 }
 ```
 
