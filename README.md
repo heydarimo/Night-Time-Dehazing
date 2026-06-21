@@ -10,8 +10,8 @@ Mohammad Heydari*, Wei Dong*, Shahram Shirani, Jun Chen, Han Zhou
 \* Equal contribution
 
 [![arXiv](https://img.shields.io/badge/arXiv-Paper-b31b1b.svg)](https://arxiv.org/abs/2604.03800)
-[![CVF](https://img.shields.io/badge/CVF-Official%20Paper-0055A4?logo=googlescholar&logoColor=white)](https://openaccess.thecvf.com/content/CVPR2026W/NTIRE/html/Heydari_HistoFusionNet_Histogram-Guided_Fusion_and_Frequency-Adaptive_Refinement_for_Nighttime_Image_Dehazing_CVPRW_2026_paper.html)
-[![CVPR Poster](https://img.shields.io/badge/CVPR%202026-Poster-6f42c1?logo=googlescholar&logoColor=white)](assets/cvpr_2026_poster_resized_5120x2560.png)
+[![CVF](https://img.shields.io/badge/CVF-Official%20Paper-0055A4?style=flat-square&logo=openaccess&logoColor=white)](https://openaccess.thecvf.com/content/CVPR2026W/NTIRE/html/Heydari_HistoFusionNet_Histogram-Guided_Fusion_and_Frequency-Adaptive_Refinement_for_Nighttime_Image_Dehazing_CVPRW_2026_paper.html)
+[![Poster](https://img.shields.io/badge/CVPR%202026-Poster-6f42c1?style=flat-square&logo=slideshare&logoColor=white)](assets/cvpr_2026_poster_resized_5120x2560.png)
 
 </div>
 
