@@ -11,7 +11,7 @@ Mohammad Heydari*, Wei Dong*, Shahram Shirani, Jun Chen, Han Zhou
 
 [![arXiv](https://img.shields.io/badge/arXiv-Paper-b31b1b.svg)](https://arxiv.org/abs/2604.03800)
 [![Project Page](https://img.shields.io/badge/Project-Page-blue)](#)
-[![Code](https://img.shields.io/badge/Code-GitHub-black)](https://github.com/heydarimo/Night-Time-Dehazing)
+[![CVPR Poster](https://img.shields.io/badge/CVPR%202026-Poster-6f42c1?logo=googlescholar&logoColor=white)](assets/cvpr_2026_poster_resized_5120x2560.png)
 
 </div>
 
